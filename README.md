@@ -4,7 +4,7 @@
 > extended with a Groq LLM agent, retrieval-augmented generation, multi-stage guardrails,
 > and a self-critiquing agentic loop.
 
-**Extra credit features implemented:** RAG Enhancement · Agentic Workflow Enhancement · Fine-Tuning / Specialization · Test Harness
+Extra credit features implemented: RAG Enhancement · Agentic Workflow Enhancement · Fine-Tuning / Specialization · Test Harness
 
 ---
 
