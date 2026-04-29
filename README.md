@@ -8,6 +8,16 @@
 
 ---
 
+## Portfolio
+
+**GitHub:** https://github.com/sijarindhakal/applied_ai_system_project
+
+Loom walkthrough: https://www.loom.com/share/8e45bf99c9304a63aa6d845eb4268731
+
+**Reflection:** VibeFinder AI shows that I think about AI engineering as a systems problem, not a prompting problem. Anyone can wire an LLM to an API; the harder work is designing the boundaries around it — guardrails that catch failures before they propagate, a retrieval layer that grounds the model in real domain knowledge, and a self-critique loop that surfaces the system's own blind spots to the user. I chose to keep the architecture deterministic and auditable at every stage: every recommendation carries a confidence score and a reasons list, every agent turn is logged as structured JSON, and every non-deterministic layer is sandwiched between validation checkpoints. That discipline — treating reliability as a first-class feature, not an afterthought — is what I want this project to say about me as an AI engineer.
+
+---
+
 ## Original Project (Module 3): Music Recommender Simulator
 
 The original project, **Music Recommender Simulator**, was built during Module 3 as a

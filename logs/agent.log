@@ -109,3 +109,52 @@ violations {
 2026-04-26 21:35:26,820 INFO     Validated prefs: {'energy': 0.5, 'genre': '', 'mood': 'happy', 'likes_acoustic': False, 'popularity': 50, 'decade': 0, 'mood_tags': [], 'allow_explicit': False, 'subgenre': ''}
 2026-04-26 21:35:28,638 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-04-26 21:35:29,457 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:16:48,036 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:16:48,056 INFO     Parsing query: 'input#1'
+2026-04-28 23:16:48,442 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:16:48,444 INFO     Parsed prefs: {'allow_explicit': False, 'decade': 0, 'energy': 0.5, 'genre': '', 'likes_acoustic': False, 'mood': '', 'mood_tags': [], 'popularity': 50, 'subgenre': ''}
+2026-04-28 23:16:48,444 INFO     Validated prefs: {'energy': 0.5, 'genre': '', 'mood': '', 'likes_acoustic': False, 'popularity': 50, 'decade': 0, 'mood_tags': [], 'allow_explicit': False, 'subgenre': ''}
+2026-04-28 23:16:50,079 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:16:50,593 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:17:10,114 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:17:10,117 INFO     Parsing query: 'input #2'
+2026-04-28 23:17:10,561 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:17:10,563 INFO     Parsed prefs: {'allow_explicit': False, 'decade': 0, 'energy': 0.5, 'genre': '', 'likes_acoustic': False, 'mood': '', 'mood_tags': [], 'popularity': 50, 'subgenre': ''}
+2026-04-28 23:17:10,563 INFO     Validated prefs: {'energy': 0.5, 'genre': '', 'mood': '', 'likes_acoustic': False, 'popularity': 50, 'decade': 0, 'mood_tags': [], 'allow_explicit': False, 'subgenre': ''}
+2026-04-28 23:17:12,402 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:17:13,019 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:17:36,980 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:17:36,983 INFO     Parsing query: 'I want vibing music'
+2026-04-28 23:17:37,390 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:17:37,391 INFO     Parsed prefs: {'allow_explicit': True, 'decade': 0, 'energy': 0.5, 'genre': '', 'likes_acoustic': False, 'mood': 'chill', 'mood_tags': [], 'popularity': 50, 'subgenre': ''}
+2026-04-28 23:17:37,391 INFO     Validated prefs: {'energy': 0.5, 'genre': '', 'mood': 'chill', 'likes_acoustic': False, 'popularity': 50, 'decade': 0, 'mood_tags': [], 'allow_explicit': True, 'subgenre': ''}
+2026-04-28 23:17:39,336 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:17:39,950 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:31:59,292 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:31:59,309 INFO     Parsing query: 'input #1'
+2026-04-28 23:31:59,725 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:31:59,726 INFO     Parsed prefs: {'allow_explicit': False, 'decade': 0, 'energy': 0.5, 'genre': '', 'likes_acoustic': False, 'mood': '', 'mood_tags': [], 'popularity': 50, 'subgenre': ''}
+2026-04-28 23:31:59,727 INFO     Validated prefs: {'energy': 0.5, 'genre': '', 'mood': '', 'likes_acoustic': False, 'popularity': 50, 'decade': 0, 'mood_tags': [], 'allow_explicit': False, 'subgenre': ''}
+2026-04-28 23:32:01,276 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:01,862 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:34,718 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:34,721 INFO     Parsing query: 'input #2'
+2026-04-28 23:32:35,025 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:35,027 INFO     Parsed prefs: {'allow_explicit': False, 'decade': 0, 'energy': 0.5, 'genre': '', 'likes_acoustic': False, 'mood': '', 'mood_tags': [], 'popularity': 50, 'subgenre': ''}
+2026-04-28 23:32:35,027 INFO     Validated prefs: {'energy': 0.5, 'genre': '', 'mood': '', 'likes_acoustic': False, 'popularity': 50, 'decade': 0, 'mood_tags': [], 'allow_explicit': False, 'subgenre': ''}
+2026-04-28 23:32:36,883 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:37,437 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:55,097 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:55,100 INFO     Parsing query: 'relaxed music'
+2026-04-28 23:32:55,364 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:55,366 INFO     Parsed prefs: {'allow_explicit': True, 'decade': 0, 'energy': 0.2, 'genre': '', 'likes_acoustic': False, 'mood': 'relaxed', 'mood_tags': [], 'popularity': 50, 'subgenre': ''}
+2026-04-28 23:32:55,366 INFO     Validated prefs: {'energy': 0.2, 'genre': '', 'mood': 'relaxed', 'likes_acoustic': False, 'popularity': 50, 'decade': 0, 'mood_tags': [], 'allow_explicit': True, 'subgenre': ''}
+2026-04-28 23:32:56,937 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:32:57,663 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:35:37,195 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:35:37,200 INFO     Parsing query: 'I want vibing music'
+2026-04-28 23:35:37,501 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:35:37,503 INFO     Parsed prefs: {'allow_explicit': False, 'decade': 0, 'energy': 0.5, 'genre': '', 'likes_acoustic': False, 'mood': 'chill', 'mood_tags': ['vibing'], 'popularity': 50, 'subgenre': ''}
+2026-04-28 23:35:37,503 INFO     Validated prefs: {'energy': 0.5, 'genre': '', 'mood': 'chill', 'likes_acoustic': False, 'popularity': 50, 'decade': 0, 'mood_tags': ['vibing'], 'allow_explicit': False, 'subgenre': ''}
+2026-04-28 23:35:39,446 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-28 23:35:40,134 INFO     HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
