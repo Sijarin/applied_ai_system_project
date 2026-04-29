@@ -54,74 +54,9 @@ This matters because it demonstrates a complete applied AI pipeline:
 The system is organized as a linear pipeline with two guardrail checkpoints, one RAG
 injection, and one agentic feedback loop at the end.
 
-```
-User (natural language)
-      │
-      ▼
-┌─────────────────┐
-│  Input Guardrail│  guardrails.py · sanitize_text()
-└────────┬────────┘
-         │ clean text
-         ▼
-┌─────────────────┐     ┌──────────────────────────────┐
-│   AI Parser     │◄────│  RAG Knowledge Base (rag.py)  │
-│  ai_agent.py    │     │  GENRE_DOCS · MOOD_DOCS       │
-│  Groq LLM +     │     └──────────────────────────────┘
-│  function call  │
-└────────┬────────┘
-         │ structured prefs dict
-         ▼
-┌─────────────────┐
-│  Input Guardrail│  guardrails.py · validate_preferences()
-└────────┬────────┘
-         │ validated prefs
-         ▼
-┌─────────────────┐     ┌──────────────────┐
-│   Recommender   │◄────│  data/songs.csv  │
-│  recommender.py │     └──────────────────┘
-│  score + MMR    │
-└────────┬────────┘
-         │ top-5 (song, score, reasons)
-         ▼
-┌─────────────────┐
-│ Output Guardrail│  guardrails.py · validate_recommendations()
-└────────┬────────┘
-         │ validated results
-         ▼
-┌─────────────────┐
-│   Evaluator     │  evaluation.py
-│                 │  confidence_score() · evaluate_recommendations()
-└────────┬────────┘
-         │ scored results + aggregate metrics
-         ▼
-┌─────────────────┐     ┌──────────────────────────────┐
-│  AI Explainer   │◄────│  RAG context injected again  │
-│  ai_agent.py    │     └──────────────────────────────┘
-│  Groq LLM       │
-└────────┬────────┘
-         │ prose explanations
-         ▼
-  ┌─────────────┐
-  │ Display to  │  ← Human reads results here
-  │    User     │
-  └──────┬──────┘
-         ▼
-┌─────────────────┐
-│  AI Self-Critique│  ai_agent.py · self_critique()
-│  (agentic loop) │  Groq LLM evaluates its own output
-└────────┬────────┘
-         │ critique shown to user
-         ▼
-┌─────────────────┐
-│     Logger      │  logs/events.jsonl · logs/agent.log
-└─────────────────┘
+![VibeFinder AI System Architecture](assets/architecture.svg)
 
-
-Testing layer (human-in-the-loop verification):
-  tests/test_guardrails.py  ──►  Input + Output Guardrails
-  tests/test_rag.py         ──►  RAG Knowledge Base
-  tests/test_evaluation.py  ──►  Confidence scoring + metrics
-```
+**Key structural points:**
 
 **Key structural points:**
 

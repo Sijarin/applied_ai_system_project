@@ -1,0 +1,335 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1240" viewBox="0 0 800 1240">
+  <!-- Background -->
+  <rect width="800" height="1240" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1a1a2e">
+    VibeFinder AI — System Architecture
+  </text>
+
+  <!-- Arrowhead markers -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9B6BB0"/>
+    </marker>
+  </defs>
+
+  <!-- ===== COMPONENT 1: User Input ===== -->
+  <rect x="175" y="55" width="280" height="55" rx="8"
+        fill="#4A90D9" stroke="#2C6FAC" stroke-width="1.5"/>
+  <text x="315" y="78" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">User</text>
+  <text x="315" y="98" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="11" fill="#cce5ff">
+    (natural language query)
+  </text>
+
+  <!-- Arrow 1 → 2 -->
+  <line x1="315" y1="110" x2="315" y2="154" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+  <text x="330" y="138" font-family="Arial, sans-serif" font-size="10" fill="#666">raw text</text>
+
+  <!-- ===== COMPONENT 2: Input Guardrail — sanitize_text ===== -->
+  <rect x="175" y="157" width="280" height="55" rx="8"
+        fill="#E8893A" stroke="#B5621A" stroke-width="1.5"/>
+  <text x="315" y="179" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    Input Guardrail
+  </text>
+  <text x="315" y="198" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#fff3e0">
+    guardrails.py · sanitize_text()
+  </text>
+
+  <!-- Arrow 2 → 3 -->
+  <line x1="315" y1="212" x2="315" y2="256" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+  <text x="330" y="240" font-family="Arial, sans-serif" font-size="10" fill="#666">clean text</text>
+
+  <!-- ===== COMPONENT 3: AI Parser ===== -->
+  <rect x="175" y="259" width="280" height="70" rx="8"
+        fill="#4CAF7D" stroke="#2E8B57" stroke-width="1.5"/>
+  <text x="315" y="281" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    AI Parser
+  </text>
+  <text x="315" y="299" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e0f7ec">
+    ai_agent.py · plan_query() + parse_query()
+  </text>
+  <text x="315" y="318" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e0f7ec">
+    Groq LLM (llama-3.3-70b) + function calling
+  </text>
+
+  <!-- RAG KB side box -->
+  <rect x="530" y="259" width="215" height="70" rx="8"
+        fill="#9B6BB0" stroke="#6A3D85" stroke-width="1.5"/>
+  <text x="637" y="281" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+    RAG Knowledge Base
+  </text>
+  <text x="637" y="299" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#f3e5ff">rag.py</text>
+  <text x="637" y="318" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#f3e5ff">
+    GENRE · MOOD · DECADE docs
+  </text>
+  <!-- RAG → Parser arrow -->
+  <line x1="530" y1="294" x2="460" y2="294" stroke="#9B6BB0" stroke-width="1.5"
+        marker-end="url(#arr-purple)"/>
+
+  <!-- Arrow 3 → 4 -->
+  <line x1="315" y1="329" x2="315" y2="373" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+  <text x="330" y="357" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    structured prefs
+  </text>
+
+  <!-- ===== COMPONENT 4: Input Guardrail — validate_preferences ===== -->
+  <rect x="175" y="376" width="280" height="55" rx="8"
+        fill="#E8893A" stroke="#B5621A" stroke-width="1.5"/>
+  <text x="315" y="398" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    Input Guardrail
+  </text>
+  <text x="315" y="417" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#fff3e0">
+    guardrails.py · validate_preferences()
+  </text>
+
+  <!-- Arrow 4 → 5 -->
+  <line x1="315" y1="431" x2="315" y2="475" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+  <text x="330" y="459" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    validated prefs
+  </text>
+
+  <!-- ===== COMPONENT 5: Recommender ===== -->
+  <rect x="175" y="478" width="280" height="70" rx="8"
+        fill="#4CAF7D" stroke="#2E8B57" stroke-width="1.5"/>
+  <text x="315" y="500" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    Recommender
+  </text>
+  <text x="315" y="518" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e0f7ec">
+    recommender.py
+  </text>
+  <text x="315" y="537" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e0f7ec">
+    weighted scoring + MMR diversity penalty
+  </text>
+
+  <!-- songs.csv side box -->
+  <rect x="530" y="478" width="215" height="70" rx="8"
+        fill="#9B6BB0" stroke="#6A3D85" stroke-width="1.5"/>
+  <text x="637" y="505" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+    data/songs.csv
+  </text>
+  <text x="637" y="525" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#f3e5ff">
+    18-song catalog
+  </text>
+  <!-- CSV → Recommender arrow -->
+  <line x1="530" y1="513" x2="460" y2="513" stroke="#9B6BB0" stroke-width="1.5"
+        marker-end="url(#arr-purple)"/>
+
+  <!-- Arrow 5 → 6 -->
+  <line x1="315" y1="548" x2="315" y2="592" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+  <text x="330" y="576" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    top-5 (song, score, reasons)
+  </text>
+
+  <!-- ===== COMPONENT 6: Output Guardrail ===== -->
+  <rect x="175" y="595" width="280" height="55" rx="8"
+        fill="#E8893A" stroke="#B5621A" stroke-width="1.5"/>
+  <text x="315" y="617" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    Output Guardrail
+  </text>
+  <text x="315" y="636" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#fff3e0">
+    guardrails.py · validate_recommendations()
+  </text>
+
+  <!-- Arrow 6 → 7 -->
+  <line x1="315" y1="650" x2="315" y2="694" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+  <text x="330" y="678" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    validated results
+  </text>
+
+  <!-- ===== COMPONENT 7: Evaluator ===== -->
+  <rect x="175" y="697" width="280" height="70" rx="8"
+        fill="#607D8B" stroke="#37474F" stroke-width="1.5"/>
+  <text x="315" y="719" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    Evaluator
+  </text>
+  <text x="315" y="737" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e8eef2">
+    evaluation.py
+  </text>
+  <text x="315" y="756" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e8eef2">
+    confidence_score() · evaluate_recommendations()
+  </text>
+
+  <!-- Arrow 7 → 8 -->
+  <line x1="315" y1="767" x2="315" y2="811" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+  <text x="330" y="795" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    scored results + metrics
+  </text>
+
+  <!-- ===== COMPONENT 8: AI Explainer ===== -->
+  <rect x="175" y="814" width="280" height="70" rx="8"
+        fill="#4CAF7D" stroke="#2E8B57" stroke-width="1.5"/>
+  <text x="315" y="836" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    AI Explainer
+  </text>
+  <text x="315" y="854" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e0f7ec">
+    ai_agent.py · explain_recommendations()
+  </text>
+  <text x="315" y="873" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e0f7ec">
+    Groq LLM + few-shot prompt
+  </text>
+
+  <!-- RAG context side box -->
+  <rect x="530" y="814" width="215" height="70" rx="8"
+        fill="#9B6BB0" stroke="#6A3D85" stroke-width="1.5"/>
+  <text x="637" y="836" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+    RAG Context
+  </text>
+  <text x="637" y="854" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#f3e5ff">
+    re-injected at explain step
+  </text>
+  <text x="637" y="873" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#f3e5ff">
+    rag.py · retrieve_context()
+  </text>
+  <!-- RAG → Explainer arrow -->
+  <line x1="530" y1="849" x2="460" y2="849" stroke="#9B6BB0" stroke-width="1.5"
+        marker-end="url(#arr-purple)"/>
+
+  <!-- Arrow 8 → 9 -->
+  <line x1="315" y1="884" x2="315" y2="928" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+  <text x="330" y="912" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    prose explanations
+  </text>
+
+  <!-- ===== COMPONENT 9: Display to User ===== -->
+  <rect x="175" y="931" width="280" height="55" rx="8"
+        fill="#4A90D9" stroke="#2C6FAC" stroke-width="1.5"/>
+  <text x="315" y="953" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    Display to User
+  </text>
+  <text x="315" y="972" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="11" fill="#cce5ff">
+    ← human reads recommendations here
+  </text>
+
+  <!-- Arrow 9 → 10 -->
+  <line x1="315" y1="986" x2="315" y2="1030" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+
+  <!-- ===== COMPONENT 10: AI Self-Critique (agentic loop) ===== -->
+  <rect x="175" y="1033" width="280" height="70" rx="8"
+        fill="#4CAF7D" stroke="#2E8B57" stroke-width="1.5"/>
+  <text x="315" y="1055" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    AI Self-Critique
+  </text>
+  <text x="315" y="1073" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e0f7ec">
+    ai_agent.py · self_critique()
+  </text>
+  <text x="315" y="1092" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e0f7ec">
+    Groq LLM — agentic self-evaluation loop
+  </text>
+  <!-- Agentic badge -->
+  <rect x="464" y="1048" width="72" height="18" rx="9"
+        fill="none" stroke="#2E8B57" stroke-width="1.2"/>
+  <text x="500" y="1061" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#2E8B57" font-style="italic">
+    ⟳ agentic
+  </text>
+
+  <!-- Arrow 10 → 11 -->
+  <line x1="315" y1="1103" x2="315" y2="1147" stroke="#555" stroke-width="1.5"
+        marker-end="url(#arr)"/>
+
+  <!-- ===== COMPONENT 11: Logger ===== -->
+  <rect x="175" y="1150" width="280" height="50" rx="8"
+        fill="#607D8B" stroke="#37474F" stroke-width="1.5"/>
+  <text x="315" y="1172" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">
+    Logger
+  </text>
+  <text x="315" y="1191" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#e8eef2">
+    logs/events.jsonl · logs/agent.log
+  </text>
+
+  <!-- ===== LEGEND ===== -->
+  <rect x="20" y="810" width="145" height="140" rx="8"
+        fill="white" stroke="#ddd" stroke-width="1"/>
+  <text x="92" y="830" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">
+    Legend
+  </text>
+  <rect x="32" y="840" width="18" height="12" rx="3" fill="#4A90D9"/>
+  <text x="58" y="851" font-family="Arial, sans-serif" font-size="11" fill="#333">User I/O</text>
+  <rect x="32" y="862" width="18" height="12" rx="3" fill="#E8893A"/>
+  <text x="58" y="873" font-family="Arial, sans-serif" font-size="11" fill="#333">Guardrail</text>
+  <rect x="32" y="884" width="18" height="12" rx="3" fill="#4CAF7D"/>
+  <text x="58" y="895" font-family="Arial, sans-serif" font-size="11" fill="#333">AI / LLM</text>
+  <rect x="32" y="906" width="18" height="12" rx="3" fill="#9B6BB0"/>
+  <text x="58" y="917" font-family="Arial, sans-serif" font-size="11" fill="#333">Data Source</text>
+  <rect x="32" y="928" width="18" height="12" rx="3" fill="#607D8B"/>
+  <text x="58" y="939" font-family="Arial, sans-serif" font-size="11" fill="#333">Utility</text>
+
+  <!-- ===== TEST LAYER NOTE ===== -->
+  <rect x="530" y="590" width="215" height="120" rx="8"
+        fill="#FFF9E6" stroke="#E8D05A" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="637" y="611" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#7A6010">
+    Test Layer (42 tests)
+  </text>
+  <text x="637" y="630" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#7A6010">
+    test_guardrails.py
+  </text>
+  <text x="637" y="647" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#7A6010">
+    test_rag.py
+  </text>
+  <text x="637" y="664" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#7A6010">
+    test_evaluation.py
+  </text>
+  <text x="637" y="681" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#7A6010">
+    test_recommender.py
+  </text>
+  <text x="637" y="698" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" fill="#7A6010">
+    test_harness.py (14 cases)
+  </text>
+
+</svg>
